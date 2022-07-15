@@ -9,7 +9,9 @@
 
 ## 通过proto文件生成代码
 ```bash
-    make generate
+   make generate #根目录要用generate.go
+   #或者
+   make validate #Makefile 要修改相对应的proto文件的位置
 ```
 
 ## ide 支持Protobuf
