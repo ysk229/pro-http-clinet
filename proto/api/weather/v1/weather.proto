@@ -1,0 +1,43 @@
+syntax = "proto3";
+
+package weather.api;
+
+
+import "validate/validate.proto";
+
+option go_package = "api/weather/v1;weather";
+
+// The request message containing the user's name.
+message Request {
+     string key = 1  ;
+     string location = 2  [(validate.rules).string.len = 7];
+}
+
+// The response message containing the greetings
+message Reply {
+  repeated   Results results = 1;
+}
+
+message Results {
+  Location location = 1;
+  repeated   Daily daily = 2;
+  string last_update = 3;
+}
+
+message Daily {
+  string id = 1;
+  string name = 2;
+  string country = 3;
+  string path = 4;
+  string timezone = 5;
+  string timezone_offset = 6;
+}
+
+message Location {
+  string id = 1;
+  string name = 2;
+  string country = 3;
+  string path = 4;
+  string timezone = 5;
+  string timezone_offset = 6;
+}
